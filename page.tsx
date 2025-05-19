@@ -2,6 +2,7 @@
 import React from "react"
 import { AnimatePresence, motion } from "motion/react";
 import { CanvasRevealEffect } from "./components/ui/canvas-reveal-effect";
+import { Button } from "./components/ui/button"
 
 export default function Home() {
   const [hovered, setHovered] = React.useState(false);
@@ -15,18 +16,27 @@ export default function Home() {
         <h1 className="text-6xl font-bold text-center text-white relative z-20 max-w-2xl mx-auto">
           Hi, I'm Thala!
         </h1>
-        <h3 className="mt-4 text-xl">
+        <h3 className="mt-4 text-white text-xl relative z-20">
           AI student. Aspiring Educator. Dreamer
         </h3>
+        <div className="text-center relative z-20">
+          <Button 
+          variant="outline"
+          className="mt-6 text-black text-bold relative z-30">
+            Know more about me
+          </Button>
+        </div>
       </div>
       
+      
+
       <AnimatePresence>
         {hovered && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="h-full w-full absolute inset-0"
+            className="h-full w-full absolute inset-0 z-10"
           >
             <CanvasRevealEffect
               animationSpeed={5}
@@ -42,7 +52,7 @@ export default function Home() {
         )}
       </AnimatePresence>
       {/* Radial gradient for the cute fade */}
-      <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
+      <div className="absolute inset-0 bg-black/50 dark:bg-black/90 z-10 [mask-image:radial-gradient(400px_at_center,white,transparent)]" />
     </div>
   );
 }
